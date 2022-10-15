@@ -13,7 +13,8 @@ from transformers import BertConfig, BertTokenizer, BertModel, BertForMaskedLM, 
                          OpenAIGPTTokenizer, OpenAIGPTLMHeadModel, OpenAIGPTConfig, \
                          GPT2Config, GPT2Tokenizer, GPT2LMHeadModel, \
                          OPTConfig, OPTForCausalLM, \
-                         ElectraConfig, ElectraForMaskedLM, ElectraTokenizer
+                         ElectraConfig, ElectraForMaskedLM, ElectraTokenizer, \
+                         XLMRobertaConfig, XLMRobertaForMaskedLM, XLMRobertaTokenizer 
 from collections import namedtuple
 from yacs.config import CfgNode
 
@@ -76,6 +77,12 @@ _MODEL_CLASSES = {
         'tokenizer': ElectraTokenizer,
         'model': ElectraForMaskedLM,
         'wrapper': MLMTokenizerWrapper,
+    }),
+    'xlmr': ModelClass(**{
+        'config': XLMRobertaConfig,
+        'tokenizer': XLMRobertaTokenizer,
+        'model': XLMRobertaForMaskedLM,
+        'wrapper': MLMTokenizerWrapper,        
     }),
 }
 
